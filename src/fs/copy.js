@@ -24,9 +24,9 @@ const copy = async () => {
       .catch(() => false);
 
     if (!folderExists) {
-      fs.mkdir(folderPath);
+      await fs.mkdir(folderPath);
 
-      fs.readdir(sourceFolderPath).then((files) => {
+      await fs.readdir(sourceFolderPath).then((files) => {
         files.forEach((file) => {
           const oldPath = path.join(sourceFolderPath, file);
           const newPath = path.join(folderPath, file);
